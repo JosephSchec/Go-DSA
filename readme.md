@@ -8,6 +8,7 @@ Starting GoLang again while learning som DSA
 - Big O explained (dropping constants)
 - Linear/Binary Search 
 - Bubble Sort
+- Deleting from linked list is constant time
 
 
 #### Resources
