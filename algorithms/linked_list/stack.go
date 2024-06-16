@@ -1,6 +1,7 @@
 package linked_list
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 )
@@ -8,17 +9,6 @@ import (
 /*
  * Pushing and popping from a Stack are constant time operations since it doesn't matter the length
  */
-
-type StackNode[T any] struct {
-	Value T
-	Prev  *StackNode[T]
-}
-
-type Stack[T any] struct {
-	Length int
-	Head   *StackNode[T]
-	Tail   *StackNode[T]
-}
 
 func (q *Stack[T]) Push(value T) *Stack[T] {
 	node := &StackNode[T]{Value: value}
@@ -35,19 +25,19 @@ func (q *Stack[T]) Push(value T) *Stack[T] {
 	return q
 }
 
-func (q *Stack[T]) Pop() T {
+func (q *Stack[T]) Pop() *T {
 	q.Length = max(0, q.Length-1)
 	curHead := q.Head
-	if q.Head == nil || q.Length == 0 {
+	if curHead == nil {
 		q.Head = nil
 		q.Tail = nil
-		return curHead.Value
+		return nil
 	}
 
 	q.Head = curHead.Prev
 	q.Length--
 
-	return curHead.Value
+	return &curHead.Value
 
 }
 
@@ -81,10 +71,12 @@ func RunSampleStack() {
 	myStack.Push(3)
 	myStack.Push(4)
 	myStack.DisplayStackNodes()
-	fmt.Println("De-stack", myStack.Pop())
-	myStack.DisplayStackNodes()
+	popped, _ := json.Marshal(myStack.Pop())
+	println("popped", string(popped))
 
-	fmt.Println("De-stack", myStack.Pop())
+	myStack.DisplayStackNodes()
+	popped, _ = json.Marshal(myStack.Pop())
+	println("popped", string(popped))
 	myStack.DisplayStackNodes()
 
 }

@@ -8,16 +8,7 @@ import (
 /*
  * Pushing and popping from a queue are constant time operations since it doesn't mattere the length
  */
-type Node[T any] struct {
-	Value T
-	Next  *Node[T]
-}
 
-type Queue[T any] struct {
-	Length int
-	Head   *Node[T]
-	Tail   *Node[T]
-}
 
 func (q *Queue[T]) Enqueue(value T) *Queue[T] {
 	node := &Node[T]{Value: value}
