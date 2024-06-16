@@ -1,4 +1,4 @@
-package queue
+package linked_list
 
 import (
 	"errors"
@@ -68,4 +68,26 @@ func (q *Queue[T]) DisplayAllNodes() {
 
 	fmt.Printf("%v\n", list)
 
+}
+
+func RunSampleQueue() {
+	myQueue := Queue[int]{}
+
+	myQueue.Enqueue(1)
+	myQueue.Enqueue(2)
+	myQueue.Enqueue(3)
+	myQueue.DisplayAllNodes()
+
+	fmt.Println("De-Q", myQueue.Dequeue())
+	myQueue.Enqueue(4)
+	myQueue.DisplayAllNodes()
+
+	fmt.Println("De-Q", myQueue.Dequeue())
+	peekValue, err := myQueue.Peek()
+
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println("Peek:", peekValue)
+	}
 }
