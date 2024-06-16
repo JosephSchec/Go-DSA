@@ -33,14 +33,16 @@ func (q *Queue[T]) Enqueue(value T) *Queue[T] {
 	return q
 }
 
-func (q *Queue[T]) Dequeue() *Queue[T] {
+func (q *Queue[T]) Dequeue() T {
+
 	if q.Head == nil {
 		q.Tail = nil
 	}
-	q.Head = q.Head.Next
+	prevHead := q.Head
+	q.Head = prevHead.Next
 	q.Length--
 
-	return q
+	return prevHead.Value
 
 }
 
@@ -64,6 +66,6 @@ func (q *Queue[T]) DisplayAllNodes() {
 		current = current.Next
 	}
 
-	fmt.Printf("%v", list)
+	fmt.Printf("%v\n", list)
 
 }
