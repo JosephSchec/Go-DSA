@@ -1,6 +1,8 @@
 package main
 
-import "github.com/josephschec/go-dsa/algorithms/linked_list"
+import (
+	"github.com/josephschec/go-dsa/algorithms/recursion"
+)
 
 // "github.com/josephschec/go-dsa/algorithms/sort"
 
@@ -19,7 +21,9 @@ func main() {
 	/** LINKED LIST START **/
 	// linked_list.RunSampleQueue()
 
-	linked_list.RunSampleStack()
+	// linked_list.RunSampleStack()
 	/** LINKED LIST END **/
 
+	/**RECURSION*/
+	recursion.RunSampleMaze()
 }
