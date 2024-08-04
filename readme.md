@@ -47,6 +47,13 @@ Starting GoLang again while learning som DSA
   - For loop should be your first instinct
   - Anytime you deal with multiple branches or ways of traversing recursion should be on your mind
 
+### Quicksort eh?
+
+- Quicksort's best case is O(nlogn) since you go through the array at each level, however if the array is sorted in reverse order this has the potential to reach O(n2) where it would need to go front to back to reach pivot point
+- Because of this possibility the best practice is to create a pivot point in the middle
+- When calculating the pivot , the high and low should be inclusive, and the pivot point itself should be removed in the recusive step
+
+
 #### Resources
 
 - Following along with [Frontend Masters class called "The Last Algorithms Course You'll need."](https://frontendmasters.com/courses/algorithms) and learning Golang along the way

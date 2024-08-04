@@ -1,15 +1,16 @@
 package main
 
 import (
-	"github.com/josephschec/go-dsa/algorithms/recursion"
+	"github.com/josephschec/go-dsa/algorithms/sort"
 )
 
 // "github.com/josephschec/go-dsa/algorithms/sort"
 
 func main() {
 
-	// myArr := []int{1, 5, 252, 34, 4}
+	myArr := []int{1, 5, 252, 34, 4}
 	// sort.BubbleSort(&myArr)
+	sort.QuickSort(&myArr)
 
 	/** SEARCH START **/
 
@@ -25,5 +26,5 @@ func main() {
 	/** LINKED LIST END **/
 
 	/**RECURSION*/
-	recursion.RunSampleMaze()
+	// recursion.RunSampleMaze()
 }
